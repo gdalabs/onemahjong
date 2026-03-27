@@ -2,6 +2,10 @@
 
 **OneMahjong** is a full on-chain 2-player Mahjong game where you play against an AI opponent. Game results, scores, and winning hands (Yaku) are recorded as on-chain objects on OneChain, making every victory a permanent, verifiable achievement.
 
+**Live Demo:** [onemahjong.pages.dev](https://onemahjong.pages.dev)
+
+![OneMahjong Screenshot](Screenshot.png)
+
 ## Features
 
 - **2-Player Mahjong vs AI** — Play against an intelligent AI that evaluates tile connectivity for optimal discards
