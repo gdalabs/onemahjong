@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneMahjong — AI Mahjong on OneChain</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      min-height: 100vh;
+    }
+    .game-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    header {
+      text-align: center;
+      padding: 20px 0 10px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: #888;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+    .info-bar {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 12px;
+      background: #16213e;
+      border-radius: 8px;
+      margin: 12px 0;
+      font-size: 0.9rem;
+    }
+    .phase-badge {
+      background: #0f3460;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .board {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ai-area, .player-area {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .ai-area { border-top: 3px solid #e94560; }
+    .player-area { border-bottom: 3px solid #6bcb77; }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+    .hand {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      min-height: 56px;
+    }
+    .tile {
+      font-size: 2rem;
+      padding: 4px 2px;
+      background: #2a2a4a;
+      border-radius: 6px;
+      display: inline-block;
+      min-width: 42px;
+      text-align: center;
+      border: 1px solid #333;
+      user-select: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .tile.back {
+      background: #0f3460;
+      border-color: #1a4a7a;
+    }
+    .tile.revealed {
+      background: #1a3a1a;
+      border-color: #2a6a2a;
+    }
+    .tile.clickable {
+      cursor: pointer;
+    }
+    .tile.clickable:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+      border-color: #ffd93d;
+    }
+    .tile.small {
+      font-size: 1.3rem;
+      min-width: 30px;
+      padding: 2px 1px;
+      background: #1a1a2e;
+    }
+    .discards {
+      margin: 8px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      align-items: center;
+    }
+    .discards .label {
+      color: #666;
+      font-size: 0.8rem;
+      margin-right: 8px;
+    }
+    .message-area {
+      text-align: center;
+      padding: 16px;
+    }
+    .message {
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+    .win-message {
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .result {
+      margin-top: 12px;
+    }
+    .yaku-list {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 8px 0;
+    }
+    .yaku-tag {
+      background: #e94560;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .score {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffd93d;
+      margin: 8px 0;
+    }
+    button {
+      background: linear-gradient(135deg, #e94560, #c23152);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .draw-btn {
+      background: linear-gradient(135deg, #6bcb77, #4a9e5a);
+      font-size: 1.1rem;
+      padding: 14px 40px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      font-size: 0.8rem;
+    }
+    footer a { color: #6bcb77; }
+    footer code {
+      background: #16213e;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

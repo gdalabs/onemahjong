@@ -1,0 +1,9 @@
+[package]
+name = "onemahjong"
+edition = "legacy"
+
+[dependencies]
+One = { git = "https://github.com/one-chain-labs/onechain.git", subdir = "crates/sui-framework/packages/one-framework", rev = "v1.0.1" }
+
+[addresses]
+onemahjong = "0x0"
